@@ -2,14 +2,14 @@ const { nanoid } = require('nanoid');
 const notes = require('./notes');
 
 const addNoteHandler = (request, h) => {
-  const { title, tag, body } = request.payload;
+  const { title, tags, body } = request.payload;
 
   const id = nanoid(16);
   const createdAt = new Date().toISOString();
   const updateAt = createdAt;
 
   const newNote = {
-    title, tag, body, id, createdAt, updateAt,
+    title, tags, body, id, createdAt, updateAt,
   };
 
   notes.push(newNote);
